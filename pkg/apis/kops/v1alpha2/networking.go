@@ -28,6 +28,7 @@ type NetworkingSpec struct {
 	Calico     *CalicoNetworkingSpec     `json:"calico,omitempty"`
 	Canal      *CanalNetworkingSpec      `json:"canal,omitempty"`
 	Kuberouter *KuberouterNetworkingSpec `json:"kuberouter,omitempty"`
+	Romana     *RomanaNetworkingSpec     `json:"romana,omitempty"`
 }
 
 // ClassicNetworkingSpec is the specification of classic networking mode, integrated into kubernetes
@@ -73,4 +74,10 @@ type CanalNetworkingSpec struct {
 
 // Kuberouter declares that we want Canal networking
 type KuberouterNetworkingSpec struct {
+}
+
+// Romana declares that we want Romana networking
+type RomanaNetworkingSpec struct {
+	DaemonServiceIP string `json:"daemonServiceIP,omitempty"`
+	EtcdServiceIP   string `json:"etcdServiceIP,omitempty"`
 }
